@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProjectDaoService {
-    private List<Project> project = new ArrayList<>();
     private final PreparedStatement getAllNames;
     private final PreparedStatement getCompanyNameByProjectName;
     private final PreparedStatement getCustomerNameByProjectName;
@@ -32,7 +31,8 @@ public class ProjectDaoService {
                 project.setCustomerId(resultSet.getLong("customer_id"));
                 project.setCost(resultSet.getInt("cost"));
 
-                this.project.add(project);
+                List<Project> project1 = new ArrayList<>();
+                project1.add(project);
             }
         }
 
@@ -145,7 +145,7 @@ public class ProjectDaoService {
         getBudgetByProjectName.setString(1, name);
         try (ResultSet rs1 = getBudgetByProjectName.executeQuery()) {
             while (rs1.next()) {
-                System.out.println("\tБ'юджет даного проекту - " +  rs1.getInt("SUM(salary)") + " грн");
+                System.out.println("\tБ'юджет даного проекту - " +  rs1.getInt("SUM(salary)"));
             }
         }
     }
@@ -169,7 +169,7 @@ public class ProjectDaoService {
 
     public long getIdProjectByName(String name) throws SQLException {
         getIdProjectByName.setString(1, "%" + name + "%");
-        int result = 0;
+        int result;
         try (ResultSet rs = getIdProjectByName.executeQuery()) {
             rs.next();
             result = rs.getInt("id");

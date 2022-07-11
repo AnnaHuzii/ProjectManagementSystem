@@ -73,14 +73,15 @@ public class Main {
 //        System.out.println("\tПрізвище і ім'я: " + fullNameInput5);
 //        Date birthDate5 = Date.valueOf(LocalDate.parse("1984-10-25"));
 //        System.out.println("\tДата народження: " + birthDate5);
-//        Developer.Sex sex5 = Developer.Sex.valueOf("male");
-//        System.out.println("\tСтать (\"male, female, unknown\"): " + sex5);
+//        Sex sex5 = Sex.MALE;
+//        String sexName5 = sex5.getSexName();
+//        System.out.println("\tСтать (\"male, female, unknown\"): " + sexName5);
 //        String email5 = "petrov_petro@ukr.net";
 //        System.out.println("\temail: " + email5);
 //        String skype5 = "petrov_petro";
 //        System.out.println("\tskype : " + skype5);
 //
-//        int add = developerDaoService.addDeveloper(fullNameInput5, birthDate5,
+//        developerDaoService.addDeveloper(fullNameInput5, birthDate5,
 //                sex5, email5, skype5);
 //        System.out.println("-------------------------");
 //
@@ -89,8 +90,9 @@ public class Main {
 //        String fullNameInput6 = "Onishchenko Elena";
 //        Date birthDateInput6 = Date.valueOf(LocalDate.parse("1990-01-02"));
 //        System.out.println("Дані будуть оновлені по розробнику " + fullNameInput6 + ", Дата народження: " + birthDateInput6);
-//        Developer.Sex sex6 = Developer.Sex.valueOf("female");
-//        System.out.println("\tСтать (\"male, female, unknown\"): " + sex6);
+//        Sex sex6 = Sex.FEMALE;
+//        String sexName6 = sex6.getSexName();
+//        System.out.println("\tСтать (\"male, female, unknown\"): " + sexName6);
 //        String email6 = "onishchenko.l@ukr.net";
 //        System.out.println("\tНовий email: " + email6);
 //        String skype6 = "lena.stadnik";
@@ -104,7 +106,7 @@ public class Main {
 //
 //        }
 //        developerDaoService.editDeveloper(idToDelete);
-//       int update = developerDaoService.editDeveloper(fullNameInput6, birthDateInput6, sex6, email6, skype6);
+//        developerDaoService.editDeveloper(fullNameInput6, birthDateInput6, sex6, email6, skype6);
 //        System.out.println("-------------------------");
 //
 //        // Видалити розробника
@@ -147,30 +149,29 @@ public class Main {
 //       System.out.println("Список проектів (Дата створення проекту - Назва проекту - Кількість розробників на цьому проекті): ");
 //       projectDao.getProjectsListInSpecialFormat();
 //       System.out.println("-------------------------");
-//
-//        System.out.println("Дані по таблиці Companies");
-//        System.out.println("-------------------------");
-//
-//        // Вивести всі компанії і їх опис");
-//        companyDaoService.getAllNames();
-//        System.out.println("-------------------------");
-//
-//       // Добавити компанію BI-DON. Опис "Development of computer games and mobile applications"
-//       companyDaoService.addCompany();
-//       System.out.println("-------------------------");
-//
-//
-//       System.out.println("Дані по таблиці Customers");
-//       System.out.println("-------------------------");
-//
-//       // Вивести всіх замовників і їх опис
-//       customerDao.getAllNames();
-//       System.out.println("-------------------------");
-//
-//       // Добавити замовника
-//       customerDao.addCustomer();
-//       System.out.println("-------------------------");
 
+        System.out.println("Дані по таблиці Companies");
+        System.out.println("-------------------------");
+
+        // Вивести всі компанії і їх опис");
+        companyDaoService.getAllNames();
+        System.out.println("-------------------------");
+
+       // Добавити компанію BI-DON. Опис "Development of computer games and mobile applications"
+       companyDaoService.addCompany();
+       System.out.println("-------------------------");
+
+
+       System.out.println("Дані по таблиці Customers");
+       System.out.println("-------------------------");
+
+       // Вивести всіх замовників і їх опис
+       customerDao.getAllNames();
+       System.out.println("-------------------------");
+
+       // Добавити замовника
+       customerDao.addCustomer();
+       System.out.println("-------------------------");
     }
 }
 

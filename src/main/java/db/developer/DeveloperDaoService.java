@@ -2,6 +2,8 @@ package db.developer;
 
 import db.company.CompanyDaoService;
 import db.project.ProjectDaoService;
+import db.skill.Industry;
+import db.skill.Level;
 import storage.Storage;
 
 import java.sql.*;
@@ -38,8 +40,17 @@ public class DeveloperDaoService {
                 developer.setDeveloperId(resultSet.getLong("id"));
                 developer.setFullName(resultSet.getString("full_name"));
                 developer.setBirthDate(resultSet.getDate("birth_date"));
-                developer.setSex(Developer.Sex.valueOf(resultSet.getString("sex")));
-                developer.setEmail(resultSet.getString("birth_date"));
+                String sex = resultSet.getString("sex");
+                Sex sexName = null;
+                if (sex.equals(Sex.MALE.getSexName())){
+                    sexName = Sex.MALE;
+                }else if (sex.equals(Sex.FEMALE.getSexName())){
+                    sexName = Sex.FEMALE;
+                }else if (sex.equals(Sex.UNKNOWN.getSexName())){
+                    sexName = Sex.UNKNOWN;
+                }
+                developer.setSex(sexName);
+                developer.setEmail(resultSet.getString("email"));
                 developer.setSkype(resultSet.getString("skype"));
                 developer.setSalary(resultSet.getFloat("salary"));
                 developers.add(developer);
@@ -193,7 +204,7 @@ public class DeveloperDaoService {
         return id;
     }
 
-    public int addDeveloper(String fullName, Date birthDate, Developer.Sex sex, String email, String skype) throws SQLException {
+    public int addDeveloper(String fullName, Date birthDate, Sex sex, String email, String skype) throws SQLException {
 
         long newDeveloperId;
         try (ResultSet rs = selectMaxId.executeQuery()) {
@@ -237,14 +248,16 @@ public class DeveloperDaoService {
         developer.setSalary(salary);
         developers.add(developer);
 
-        String industry = "Java";
-        System.out.println("\tВолодіє мовою програмування (Java, C++, C#, JS) : " + industry);
+        Industry industry = Industry.C_PLUS_PLUS;
+        String industryName = industry.getIndustryName();
+        System.out.println("\tВолодіє мовою програмування (Java, C++, C#, JS) : " + industryName);
 
-        String level = "Senior";
-        System.out.println("\tРівень знань мови програмування (junior, middle, senior) : " + level);
+        Level level = Level.SENIOR;
+        String lenelName = level.getLevelName();
+        System.out.println("\tРівень знань мови програмування (junior, middle, senior) : " + lenelName);
 
-        getIdSkillByIndustryAndSkillLevel.setString(1, "%" + industry + "%");
-        getIdSkillByIndustryAndSkillLevel.setString(2, "%" + level + "%");
+        getIdSkillByIndustryAndSkillLevel.setString(1, "%" + industryName + "%");
+        getIdSkillByIndustryAndSkillLevel.setString(2, "%" + lenelName + "%");
         long skillId;
         try (ResultSet rs = getIdSkillByIndustryAndSkillLevel.executeQuery()) {
             rs.next();
@@ -287,7 +300,7 @@ public class DeveloperDaoService {
         developers.removeIf(nextDeveloper -> nextDeveloper.getDeveloperId() == idToDelete);
     }
 
-    public int editDeveloper(String fullName, Date birthDate, Developer.Sex sex, String email, String skype) throws SQLException {
+    public int editDeveloper(String fullName, Date birthDate, Sex sex, String email, String skype) throws SQLException {
 
         long newDeveloperId;
         try (ResultSet rs = selectMaxId.executeQuery()) {
@@ -331,14 +344,18 @@ public class DeveloperDaoService {
         developer.setSalary(salary);
         developers.add(developer);
 
-        String industry = "Java";
-        System.out.println("\tВолодіє мовою програмування (Java, C++, C#, JS) : " + industry);
 
-        String level = "Senior";
-        System.out.println("\tРівень знань мови програмування змінено(junior, middle, senior) : " + level);
+        Industry industry = Industry.JAVA;
+        String industryName = industry.getIndustryName();
+        System.out.println("\tВолодіє мовою програмування (Java, C++, C#, JS) : " + industryName);
 
-        getIdSkillByIndustryAndSkillLevel.setString(1, "%" + industry + "%");
-        getIdSkillByIndustryAndSkillLevel.setString(2, "%" + level + "%");
+
+        Level level = Level.SENIOR;
+        String lenelName = level.getLevelName();
+        System.out.println("\tРівень знань мови програмування змінено(junior, middle, senior) : " + lenelName);
+
+        getIdSkillByIndustryAndSkillLevel.setString(1, "%" + industryName + "%");
+        getIdSkillByIndustryAndSkillLevel.setString(2, "%" + lenelName + "%");
         long skillId;
         try (ResultSet rs = getIdSkillByIndustryAndSkillLevel.executeQuery()) {
             rs.next();

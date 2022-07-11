@@ -14,10 +14,4 @@ public class Developer {
     private  String email;
     private  String skype;
     private  float salary;
-
-    public enum Sex {
-        male,
-        female,
-        unknown
-    }
 }
