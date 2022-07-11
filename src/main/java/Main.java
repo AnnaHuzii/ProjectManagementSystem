@@ -150,28 +150,28 @@ public class Main {
 //       projectDao.getProjectsListInSpecialFormat();
 //       System.out.println("-------------------------");
 
-        System.out.println("Дані по таблиці Companies");
-        System.out.println("-------------------------");
-
-        // Вивести всі компанії і їх опис");
-        companyDaoService.getAllNames();
-        System.out.println("-------------------------");
-
-       // Добавити компанію BI-DON. Опис "Development of computer games and mobile applications"
-       companyDaoService.addCompany();
-       System.out.println("-------------------------");
-
-
-       System.out.println("Дані по таблиці Customers");
-       System.out.println("-------------------------");
-
-       // Вивести всіх замовників і їх опис
-       customerDao.getAllNames();
-       System.out.println("-------------------------");
-
-       // Добавити замовника
-       customerDao.addCustomer();
-       System.out.println("-------------------------");
+//        System.out.println("Дані по таблиці Companies");
+//        System.out.println("-------------------------");
+//
+//        // Вивести всі компанії і їх опис");
+//        companyDaoService.getAllNames();
+//        System.out.println("-------------------------");
+//
+//       // Добавити компанію BI-DON. Опис "Development of computer games and mobile applications"
+//       companyDaoService.addCompany();
+//       System.out.println("-------------------------");
+//
+//
+//       System.out.println("Дані по таблиці Customers");
+//       System.out.println("-------------------------");
+//
+//       // Вивести всіх замовників і їх опис
+//       customerDao.getAllNames();
+//       System.out.println("-------------------------");
+//
+//       // Добавити замовника
+//       customerDao.addCustomer();
+//       System.out.println("-------------------------");
     }
 }
 
