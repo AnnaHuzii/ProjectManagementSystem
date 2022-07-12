@@ -26,8 +26,6 @@ public class DeveloperDaoService {
     private final PreparedStatement existsByIdSt;
     private final PreparedStatement getIdByFullName;
     private final PreparedStatement deleteDeveloperFromDevelopersById;
-    private final PreparedStatement deleteDeveloperFromProjectDevelopersByIdSt;
-    private final PreparedStatement deleteDeveloperFromDevelopersSkillsById;
 
     public DeveloperDaoService(Connection connection) throws SQLException {
         PreparedStatement getAllInfoSt = connection.prepareStatement(
@@ -123,13 +121,6 @@ public class DeveloperDaoService {
                 "DELETE FROM developers WHERE id = ?"
         );
 
-        deleteDeveloperFromProjectDevelopersByIdSt = connection.prepareStatement(
-                "DELETE FROM projects_developers WHERE developer_id = ?"
-        );
-
-        deleteDeveloperFromDevelopersSkillsById = connection.prepareStatement(
-                "DELETE FROM developers_skills WHERE developer_id = ?"
-        );
     }
 
 
@@ -288,12 +279,6 @@ public class DeveloperDaoService {
     public void deleteDeveloper(String fullName, Date birthDate) throws SQLException {
         long idToDelete = getIdByFullName(fullName, birthDate);
 
-        deleteDeveloperFromProjectDevelopersByIdSt.setLong(1, idToDelete);
-        deleteDeveloperFromProjectDevelopersByIdSt.executeUpdate();
-
-        deleteDeveloperFromDevelopersSkillsById.setLong(1, idToDelete);
-        deleteDeveloperFromDevelopersSkillsById.executeUpdate();
-
         deleteDeveloperFromDevelopersById.setLong(1, idToDelete);
         deleteDeveloperFromDevelopersById.executeUpdate();
 
@@ -376,12 +361,6 @@ public class DeveloperDaoService {
     }
 
     public void editDeveloper(long id) throws SQLException {
-        deleteDeveloperFromProjectDevelopersByIdSt.setLong(1, id);
-        deleteDeveloperFromProjectDevelopersByIdSt.executeUpdate();
-
-        deleteDeveloperFromDevelopersSkillsById.setLong(1, id);
-        deleteDeveloperFromDevelopersSkillsById.executeUpdate();
-
         deleteDeveloperFromDevelopersById.setLong(1, id);
         deleteDeveloperFromDevelopersById.executeUpdate();
 

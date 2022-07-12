@@ -117,7 +117,7 @@ public class Main {
 //        developerDaoService.deleteDeveloper(fullNameInput7, birthDateInput7);
 //        System.out.println("Розробник успішно видалений з бази даних.");
 //        System.out.println("-------------------------");
-//
+
 //        System.out.println("Дані по таблиці Projects");
 //        System.out.println("-------------------------");
 //

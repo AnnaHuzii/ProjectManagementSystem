@@ -36,13 +36,13 @@ CREATE TABLE project (
 CREATE TABLE projects_developers (
     project_id INT NOT NULL,
     developer_id INT NOT NULL,
-    FOREIGN KEY(project_id) REFERENCES project(id),
-    FOREIGN KEY(developer_id) REFERENCES developers(id)
+    FOREIGN KEY(project_id) REFERENCES project(id) ON DELETE CASCADE,
+    FOREIGN KEY(developer_id) REFERENCES developers(id) ON DELETE CASCADE
 );
 
 CREATE TABLE developers_skills (
     developer_id INT NOT NULL,
     skill_id INT NOT NULL,
-    FOREIGN KEY(developer_id) REFERENCES developers(id),
-    FOREIGN KEY(skill_id) REFERENCES skills(id)
+    FOREIGN KEY(developer_id) REFERENCES developers(id) ON DELETE CASCADE,
+    FOREIGN KEY(skill_id) REFERENCES skills(id) ON DELETE CASCADE
 );
