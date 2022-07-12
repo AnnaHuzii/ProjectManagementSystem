@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74c3aeab-86b0-48a8-83c7-375d81ab2534" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/db/developer/Sex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/db/skill/Industry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/db/skill/Level.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/developer/Developer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/db/developer/Developer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/developer/DeveloperDaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/db/developer/DeveloperDaoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/project/ProjectDaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/db/project/ProjectDaoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/skill/Skill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/db/skill/Skill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/storage/DataBaseInitService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/storage/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/storage/Storage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

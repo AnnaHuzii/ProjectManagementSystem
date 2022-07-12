@@ -22,29 +22,12 @@ public class Storage {
             ex.printStackTrace();
         }
     }
-
     public static Storage getInstance() {
         return INSTANCE;
     }
-
-//    public int executeUpdate(String sql) {
-//        try(Statement st = connection.createStatement()) {
-//            return st.executeUpdate(sql);
-//        } catch (Exception ex) {
-//            ex.printStackTrace();
-//            return -1;
-//        }
-//    }
 
     public Connection getConnection() {
         return connection;
     }
 
-//    public void close() {
-//        try {
-//            connection.close();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
 }
